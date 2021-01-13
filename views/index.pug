@@ -1,0 +1,25 @@
+extends layouts/layout
+
+block content
+   .row
+      .col.align-self-center
+         img.rounded.float-start(src="/images/alucard.jpg", alt="avatar", width="100", height="100")
+      .col-md-8
+         .card
+            .card-body
+               form(method="POST")
+                  .form-group
+                     textarea.form-control
+            .card-footer
+               button.btn.btn-primary(type="submit") Post
+   .row.justify-content-end
+      if posts.length > 0
+         each post in posts
+            .col-md-8
+               .card
+                  .card-body
+                     p.card-text #{post.content}
+                  .card-footer
+                     button.btn.btn-primary.btn-sm Like
+      else 
+         h1 No Posts
