@@ -11,7 +11,8 @@ const sessionConfiguration = {
    saveUninitialized: true,
 };
 
-const UserRoute = require("./routes/users");
+const userRoute = require("./routes/users");
+const { pageNotFound } = require("./controllers/errors");
 
 app.set("view engine", "pug");
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(session(sessionConfiguration));
 
-app.use("/", UserRoute);
+app.use("/", userRoute);
+app.use(pageNotFound);
 
 app.listen(PORT, console.log(`App is running on http://localhost:3000`));
