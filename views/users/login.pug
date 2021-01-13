@@ -1,0 +1,20 @@
+extends ../layouts/layout
+
+mixin formGroup(label, id,type="text")
+   .form-group.mb-2
+      label(for=id) #{label}
+      input.form-control(type="text", id=id, name=id)
+
+block content
+   .row.justify-content-center
+      .col-md-4
+         .card
+            .card-header Sign In
+            .card-body
+               form(method="POST")
+                  +formGroup('Email', 'email', 'email')
+                  +formGroup('Password', 'password', 'password')
+                  .d-grid.gap-2.mt-4
+                     button.btn.btn-primary(type="submit") Sign In
+                     span Don't have any account? 
+                        a.card-link.text-decoration-none(href="/auth/register") Sign Up
