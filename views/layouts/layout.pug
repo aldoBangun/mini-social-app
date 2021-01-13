@@ -1,0 +1,19 @@
+doctype html
+html
+   meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+   meta(name="viewport", content="width=device-width, initial-scale=1.0")
+   link(rel="stylesheet", href="/css/bootstrap.min.css")
+   title #{pageTitle || 'Mini Social'}
+body
+   nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.mb-5
+      .container-md
+         a.navbar-brand(href="/") Mini Social
+         ul.navbar-nav
+            .nav-item
+               a.nav-link(href="/") Home
+            .nav-item
+               a.nav-link(href="/profile") Profile
+   .container
+      block content
+
+   script(src="/js/bootstrap.bundle.min.js")
