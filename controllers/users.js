@@ -26,7 +26,8 @@ const userLogin = (req, res) => {
          return res.render("users/login", { message: "Invalid Password" });
       }
 
-      res.render("index", { isAuth: true });
+      req.session.uid = results[0].id;
+      res.render("index", { isAuth: true, uid });
    });
 };
 
