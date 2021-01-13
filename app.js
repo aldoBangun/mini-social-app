@@ -19,6 +19,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(session(sessionConfiguration));
 
-app.use("/auth", UserRoute);
+app.use("/", UserRoute);
 
 app.listen(PORT, console.log(`App is running on http://localhost:3000`));
