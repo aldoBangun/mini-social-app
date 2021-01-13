@@ -3,7 +3,7 @@ extends ../layouts/layout
 mixin formGroup(label, id,type="text")
    .form-group.mb-2
       label(for=id) #{label}
-      input.form-control(type="text", id=id, name=id)
+      input.form-control(type=type, id=id, name=id)
 
 block content
    .row.justify-content-center
