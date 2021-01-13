@@ -1,0 +1,21 @@
+extends ../layouts/layout
+
+mixin formGroup(label, id,type="text")
+   .form-group.mb-2
+      label(for=id) #{label}
+      input.form-control(type="text", id=id, name=id)
+
+block content
+   .row.justify-content-center
+      .col-md-4
+         .card
+            .card-header Sign Up
+            .card-body
+               form(method="POST")
+                  +formGroup('First Name', 'firstName')
+                  +formGroup('Last Name', 'lastName')
+                  +formGroup('Email', 'email', 'email')
+                  +formGroup('Password', 'password', 'password')
+                  +formGroup('Gender', 'gender')
+                  .d-grid.gap-2.mt-4
+                     button.btn.btn-primary(type="submit") Sign Up
