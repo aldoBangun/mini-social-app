@@ -9,10 +9,12 @@ body
       .container-md
          a.navbar-brand(href="/") Mini Social
          ul.navbar-nav
-            .nav-item
-               a.nav-link(href="/") Home
-            .nav-item
+            li.nav-item
+               a.nav-link.active(href="/") Home
+            li.nav-item
                a.nav-link(href="/profile") Profile
+            li.nav-item
+               a.nav-link(href="/login") Login
    .container
       block content
 
