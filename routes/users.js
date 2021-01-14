@@ -6,7 +6,9 @@ const {
    pageUserRegister,
    pageUserLogin,
 } = require("../controllers/users");
+const { homePage, addPost } = require("../controllers/posts");
 
+router.route("/").get(homePage).post(addPost);
 router.route("/register").get(pageUserRegister).post(userRegistration);
 router.route("/login").get(pageUserLogin).post(userLogin);
 
