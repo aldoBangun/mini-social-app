@@ -11,10 +11,7 @@ const { getUserById } = require("../models/users");
 const errOpt = { message: "Internal Server Error" };
 
 const addPost = (req, res) => {
-   if (!req.session.uid) {
-      res.redirect("/login");
-   }
-
+   req.body.userId = req.session.uid;
    create(req.body, () => {
       res.redirect("/");
    });
@@ -39,7 +36,11 @@ const deletePost = (req, res) => {
 const homePage = (req, res) => {
    const { uid } = req.session;
 
-   if (!uid) return res.redirect("/login");
+   if (!uid) {
+      getAllPosts((err, results) => {
+         return res.render("index", { posts: results });
+      });
+   }
 
    getUserById(uid, (err, result) => {
       getAllPosts((err, results) => {
