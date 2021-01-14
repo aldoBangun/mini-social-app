@@ -11,7 +11,7 @@ const create = (post, callback) => {
 
 const getAllPosts = (callback) => {
    sql.query(
-      "SELECT users.firstName, users.lastName, content, users.photo FROM posts JOIN users ON posts.user_id = users.id",
+      "SELECT users.firstName, users.lastName, content, users.photo FROM posts JOIN users ON posts.user_id = users.id ORDER BY posts.id DESC",
       callback
    );
 };
