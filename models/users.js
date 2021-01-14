@@ -8,4 +8,8 @@ const login = (email, callback) => {
    sql.query("SELECT * FROM users WHERE email = ?", [email], callback);
 };
 
-module.exports = { register, login };
+const getUserById = (id, callback) => {
+   sql.query("SELECT * FROM users WHERE id = ?", [id], callback);
+};
+
+module.exports = { register, login, getUserById };
