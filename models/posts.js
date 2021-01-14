@@ -32,8 +32,13 @@ const getPostByUserId = (id, callback) => {
    );
 };
 
-const update = (newData, callback) => {
-   sql.query("UPDATE posts SET ?", newData, callback);
+const update = (post, callback) => {
+   const { content, userId } = posts;
+   sql.query(
+      "UPDATE posts SET content=? WHERE user_id = ?",
+      [content, userId],
+      callback
+   );
 };
 
 const destroy = (id, callback) => {
