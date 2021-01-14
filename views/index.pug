@@ -1,25 +1,27 @@
 extends layouts/layout
 
 block content
-   .row
+   .row.mb-5
       .col.align-self-center
          img.rounded.float-start(src="/images/alucard.jpg", alt="avatar", width="100", height="100")
+         h5 #{(user.firstName) || 'Unregistered'}
       .col-md-8
          .card
             .card-body
                form(method="POST")
-                  .form-group
-                     textarea.form-control
-            .card-footer
-               button.btn.btn-primary(type="submit") Post
+                  .form-group.mb-3
+                     textarea.form-control(name="content", rows="4")
+                     input.visually-hidden(type="number", name="userId",value=user.id)
+                  button.btn.btn-primary(type="submit") Post
    .row.justify-content-end
       if posts.length > 0
          each post in posts
-            .col-md-8
+            .col-md-8.mb-2
                .card
                   .card-body
+                     h5.card-title.text-capitalize
+                        a.card-link.text-decoration-none(href="/users/"+post.user_id) #{post.firstName} #{post.lastName}
                      p.card-text #{post.content}
-                  .card-footer
                      button.btn.btn-primary.btn-sm Like
       else 
          h1 No Posts

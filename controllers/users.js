@@ -39,6 +39,8 @@ const pageUserLogin = (req, res) => {
    res.render("users/login");
 };
 
+const getUserById = (req, res) => {};
+
 module.exports = {
    userRegistration,
    userLogin,
